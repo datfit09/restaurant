@@ -1,0 +1,170 @@
+.container_header {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    zoom: 1;
+    width: 100%;
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 97px;
+    }
+}
+
+
+/* Menu nav */
+@media( min-width: 992px ) {
+    .primary-menu {
+        padding-left: 0;
+        margin: 0;
+        > li {
+            display: inline-flex;
+            line-height: 1;
+            > a {
+                padding: 0 20px;
+                line-height: 100px;
+                color: $color__text-menu;
+                text-transform: uppercase;
+
+                &:hover:before,
+                &:active:before {
+                    width: 100%;
+                }
+                &:before {
+                    width: 0;
+                    content: '';
+                    height: 1px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: $color__text-menu;
+                    transition-duration: 0.3s;
+                }
+            }
+            ul {
+                min-width: 180px;
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
+                top: 110%;
+                left: 0;
+                margin-left: 0;
+                background: #fff;
+                text-align: left;
+                z-index: 5;
+                transform: scaleY( 0 );
+                ul {
+                    top: 20%;
+                    transition-duration: 0.3s;
+                }
+                li.menu-item-has-children {
+                    &:after {
+                        content: "\f105";
+                        font-family: 'FontAwesome';
+                        font-size: 12px !important;
+                        top: 50%;
+                        transform: translateY( -50% );
+                        line-height: 1 !important;
+                        position: absolute;
+                        right: 10px;
+                    }
+                }
+                a {
+                    display: block;
+                    padding: 10px 20px;
+                    color: $color__text-menu;
+                    text-transform: uppercase;
+                    &:hover {
+                        background: rgba(239, 239, 239, 0.28);
+                    }
+                }
+            }
+        }
+        li {
+            position: relative;
+            &:hover {
+                > ul {
+                    pointer-events: auto;
+                    opacity: 1;
+                    visibility: visible;
+                    top: 100%;
+                    transform: translateX( 0px );
+                }
+            }
+        }
+        .sub-menu {
+            pointer-events: none;
+            @media ( min-width: 992px ) {
+                box-shadow: 0 2px 8px 0 rgba(125, 122, 122, 0.2);
+                border-radius: 4px;
+            }
+            transition-duration: 0.2s;
+            transform: translateY( 10px );
+            > li {
+                > ul {
+                    transform: translateX( 0 );
+                    top: 0;
+                    left: 100%;
+                }
+            }
+        }
+    }
+
+    #pull {
+        display: none;
+    }
+}
+
+
+
+/*---------------------------Menu mobile Responsive 991px-----------------------------------------------*/
+@media (max-width: 991px) {
+
+    .menu-all-pages-container {
+        width: 100%;
+        right: 0;
+        margin-left: 0;
+        background-color: #fff;
+        text-align: left;
+        display: none;
+    }
+
+    .menu a {
+        text-align: left;
+        display: block;
+        padding: 10px 30px;
+        text-transform: uppercase;
+        word-wrap: break-word;
+    }
+
+    .menu li {
+        display: block;
+    }
+
+    .menu li:before {
+        content: none;
+    }
+}
+
+@media only screen and (max-width : 768px) {
+    .container_header {
+        display: block;
+        clear: both;
+    }
+
+    .site-branding {
+        display: block;
+        padding: 20px 0 40px 0;
+    }
+
+    #pull {
+        position: absolute;
+        content: " ";
+        background-color: transparent;
+        border: none;
+        top: 100px;
+        right: 0;
+        z-index: 5;
+    }
+}

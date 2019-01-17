@@ -1,0 +1,107 @@
+/**
+ * Products
+ */
+
+
+.products {
+    float: left;
+    .product {
+        display: block;
+        float: left;
+        clear: both;
+        margin-bottom: 30px;
+        &:hover {
+            .view-detail {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        .restaurant_product_link_open {
+            position: relative;
+            float: left;
+            margin-right: 30px;
+            img {
+                display: block;
+            }
+        }
+            
+        .view-detail {
+            position: absolute;
+            visibility: hidden;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            opacity: 0;
+            background-color: rgba(195,145,125,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .text-view {
+                margin-top: 100px;
+                color: #fff;
+            }
+            &:before {
+                content: '';
+                width: 1px;
+                height: 60px;
+                background-color: #fff;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translateY( -50% );
+            }
+            &:after {
+                content: '';
+                width: 60px;
+                height: 1px;
+                background-color: #fff;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translateX( -50% );
+            }
+        }
+
+        .restaurant-product-info {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            .short-description {
+                margin: 30px 0;
+            }
+
+            .button {
+                border: 1px solid #c3917d;
+                border-radius: 50px;
+                background-color: #c3917d;
+                padding: 5px 60px;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.woocommerce-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    float: right;
+}
+.site-content{
+    margin-top: 100px;
+    #primary {
+        float: left;
+        width: 67%;
+        @media ( min-width: 992px ) {
+            margin-right: 30px;
+        }
+    }
+
+    #secondary {
+        float: left;
+        width: calc( 33% - 30px );
+    }
+}
+    
