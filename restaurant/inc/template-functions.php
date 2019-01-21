@@ -43,7 +43,6 @@ function restaurant_wc_excapce() {
      */
     global $product;
     $desc = $product->get_short_description();
-
     echo  '<div class="short-description">'. esc_html( $desc, 'restaurant' ) . '</div>' ;
 }
 
@@ -107,3 +106,5 @@ if ( ! function_exists( 'restaurant_view_detail' ) ) {
         echo '<div class="view-detail"> <span class="text-view">' . esc_html( 'View detail', 'restaurant' ) . '</span></div>';
     }
 }
+
+

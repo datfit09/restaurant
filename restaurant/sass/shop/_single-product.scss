@@ -8,14 +8,25 @@
 
 		.woocommerce-product-gallery {
 			position: relative;
+            width: 48%;
+            float: left;
+            margin-right: 30px;
 
 			.woocommerce-product-gallery__trigger {
 				position: absolute;
-				top: 1em;
+				top: 2em;
 				right: 1em;
 				display: block;
 				z-index: 99;
 			}
+
+            .woocommerce-product-gallery__wrapper {
+                .woocommerce-product-gallery__image {
+                    img {
+                       width: 100%;
+                    }
+                }
+            }
 
 			.flex-viewport {
 				margin-bottom: 1em;
@@ -65,6 +76,94 @@
 				}
 			}
 		}
+
+        .summary {
+            float: left;
+            width: calc( 52% - 30px );
+
+            .woocommerce-product-rating {
+                display: flex;
+                justify-content: flex-start;
+                .star-rating {
+                    margin-right: 15px;
+                    span:before {
+                        color: #c3917d;
+                    }
+                }
+            }
+
+            .price {
+                margin-top: 15px;
+                font-size: 30px;
+            }
+
+            .cart {
+                display: inline-flex;
+                align-items: center;
+                margin-bottom: 20px;
+
+                .quantity {
+                    margin-right: 50px;
+                    .input-text {
+                        width: 150px;
+                        height: 40px;
+                        padding-left: 20px;
+                    }
+                }
+                .single_add_to_cart_button {
+                    border-radius: 5px;
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+            }
+        }
+
+        .woocommerce-tabs {
+            float: left;
+            clear: both;
+            .wc-tabs {
+                li {
+                    display: inline-block;
+                    margin-right: 30px;
+                    padding: 0 20px;
+                }
+            }
+        }
+
+        section.related.products {
+            display: block;
+            clear: both;
+            padding-top: 80px;
+            h2 {
+                font-size: 72px;
+                color: #ca9f8f;
+                text-align: center;
+                font-family: $font__text_title;
+                font-weight: 100;
+            }
+
+            .woocommerce-loop-product__title {
+                font-size: 18px;
+                color: #000;
+                font-family: $font__title;
+            }
+
+            ul.products {
+                float: left;
+                margin-bottom: 80px;
+                .product {
+                    display: flex;
+                    flex-direction: column;
+                    
+                    .restaurant-product-info {
+                        .short-description,
+                        .product_type_simple  {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
 	}
 }
 
@@ -80,4 +179,41 @@
 	&.out-of-stock {
 		color: $woocommerce__color-error;
 	}
+}
+
+
+// no sidebar.
+.full-sidebar {
+    .single-product {
+        @media (min-width: 992px) {
+            .site-content .container #primary {
+                margin-left: 0;
+            }
+            .site-content .container #primary {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// left sidebar.
+.left-sidebar {
+    .single-product {
+        @media (min-width: 992px) {
+            .site-content .container #primary {
+                margin-left: 0;
+                float: right;
+            }
+        }
+    }
+}
+
+// right sidebar.
+.right-sidebar {
+    .single-product {
+        .site-content #primary {
+            margin-left: 0;
+            margin-right: 30px;
+        }
+    }
 }

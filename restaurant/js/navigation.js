@@ -3,12 +3,12 @@
  *
  */
 
-(function( $ ) {
+( function( $ ) {
     var pull        = $('#pull'),
-        menu        = $('.menu-all-pages-container');
+        menu        = $('.menu-menu-1-container');
  
     pull.on('click', function( e ) {
-        e.prrestaurantDefault();
+        e.preventDefault();
         menu.slideToggle();
     });
 

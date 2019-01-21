@@ -1,3 +1,14 @@
+.home {
+    .site-content #secondary {
+        width: 100%;
+        margin-right: 30px;
+    }
+    @media (min-width: 992px){
+        .site-content #primary {
+            margin-left: 0;
+        }
+    }
+}
 
 .post-format {
     padding: 0 2px;
@@ -8,7 +19,7 @@
 
 .entry-content {
     p {
-        font-family: $font__tittle;
+        font-family: $font__title;
     }
 }
 
@@ -209,11 +220,6 @@ article {
             background-color: transparent;
         }
     }
-}
-
-.single li {
-    color: #6c6c6c;
-    line-height: 28px;
 }
 
 

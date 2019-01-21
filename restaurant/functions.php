@@ -272,7 +272,7 @@ if ( ! function_exists( 'restaurant_title_blog' ) ) {
         ?>
         <div class="block">
             <h1 class="blog-title" style="<?php blog_title_style(); ?>">
-                <?php echo wp_kses_post( $title ); ?>
+                <span class="blog-title-text"><?php echo wp_kses_post( $title ); ?></span>
             </h1>
         </div>
         <?php
@@ -398,8 +398,8 @@ if ( ! function_exists( 'restaurant_pagination' ) ) {
     <div class="pagination-button">
         <?php
             $args = array(
-                'prev_text'          => __( '<', 'restaurant' ),
-                'next_text'          => __( '>', 'restaurant' ),
+                'prev_text' => __( '<', 'restaurant' ),
+                'next_text' => __( '>', 'restaurant' ),
             );
 
             the_posts_pagination( $args );
@@ -409,10 +409,40 @@ if ( ! function_exists( 'restaurant_pagination' ) ) {
     }
 }
 
+
+
+// Change loop columns shop page.
 add_filter('loop_shop_columns', 'loop_columns');
 if (!function_exists('loop_columns')) {
     function loop_columns() {
         $column = get_option( 'shop_column', 1 );
         return $column; // 3 products per row
+    }
+}
+
+// Change number of related products output.
+function woo_related_products_limit() {
+  global $product;
+    
+    $args['posts_per_page'] = 6;
+    return $args;
+}
+add_filter( 'woocommerce_output_related_products_args', 'restaurant_related_products_args' );
+  function restaurant_related_products_args( $args ) {
+    $args['posts_per_page'] = 4; // 4 related products
+    $args['columns'] = get_option( 'shop_single_related_column', 4 ); // arranged in 2 columns
+    return $args;
+}
+
+// Remove sidebar Product Page.
+add_action( 'wp', 'restaurant_sidebar_remove' );
+ 
+function restaurant_sidebar_remove() {
+    $sidebar_shop = get_option( 'shop_sidebar', 'left' );
+    $sidebar_shop_single = get_option( 'shop_single_sidebar', 'full' );
+    if ( is_shop() && 'full' == $sidebar_shop ) {
+        remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+    } elseif ( is_singular( 'product' ) && 'full' == $sidebar_shop_single ) {
+        remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
     }
 }

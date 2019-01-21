@@ -50,7 +50,7 @@
                 top: 110%;
                 left: 0;
                 margin-left: 0;
-                background: #fff;
+                background: rgba(0, 0, 0, 0.2);
                 text-align: left;
                 z-index: 5;
                 transform: scaleY( 0 );
@@ -114,6 +114,34 @@
     #pull {
         display: none;
     }
+
+
+    .primary-menu {
+        > li {
+            position: relative;
+            &.current-menu-item,
+            &.current-menu-ancestor,
+            &.current-menu-parent,
+            &.current_page_parent,
+            &.current_page_ancestor {
+                > a {
+                    color: red;
+
+                    &:before {
+                        width: 0;
+                        content: '';
+                        height: 1px;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: $color__text-menu;
+                        transition-duration: 0.3s;
+                    }
+                }                
+            }
+        }
+    }
 }
 
 
@@ -121,7 +149,7 @@
 /*---------------------------Menu mobile Responsive 991px-----------------------------------------------*/
 @media (max-width: 991px) {
 
-    .menu-all-pages-container {
+    .menu-menu-1-container {
         width: 100%;
         right: 0;
         margin-left: 0;
@@ -160,7 +188,7 @@
 
     #pull {
         position: absolute;
-        content: " ";
+        content: ' ';
         background-color: transparent;
         border: none;
         top: 100px;
