@@ -39,11 +39,7 @@
                         <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
                         <?php
                     endif;
-                    $restaurant_description = get_bloginfo( 'description', 'display' );
-                    if ( $restaurant_description || is_customize_preview() ) :
-                        ?>
-                        <p class="site-description"><?php echo $restaurant_description; /* WPCS: xss ok. */ ?></p>
-                    <?php endif; ?>
+                    ?>
                 </div>
 
                 <?php
@@ -63,10 +59,7 @@
 
         <div class="banner" style="<?php restaurant_page_header_background(); ?>">
             <div class="container">
-
                 <?php restaurant_title_blog(); ?>
-                <?php restaurant_description_blog(); ?>
-
             </div>
         </div>
 	</header>

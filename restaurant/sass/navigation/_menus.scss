@@ -8,8 +8,16 @@
         align-items: center;
         justify-content: space-between;
         min-height: 97px;
+
+        @media ( max-width: 991px ) {
+            &:after{
+                content: none;
+            }
+        }
     }
 }
+
+// button cho nao ay nhi
 
 
 /* Menu nav */
@@ -93,6 +101,7 @@
                 }
             }
         }
+
         .sub-menu {
             pointer-events: none;
             @media ( min-width: 992px ) {
@@ -115,30 +124,23 @@
         display: none;
     }
 
-
     .primary-menu {
         > li {
-            position: relative;
             &.current-menu-item,
             &.current-menu-ancestor,
             &.current-menu-parent,
             &.current_page_parent,
             &.current_page_ancestor {
-                > a {
-                    color: red;
-
-                    &:before {
-                        width: 0;
-                        content: '';
-                        height: 1px;
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        background-color: $color__text-menu;
-                        transition-duration: 0.3s;
-                    }
-                }                
+                &:before {
+                    content: '';
+                    height: 1px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: $color__text-menu;
+                    transition-duration: 0.3s;
+                }
             }
         }
     }
@@ -148,30 +150,64 @@
 
 /*---------------------------Menu mobile Responsive 991px-----------------------------------------------*/
 @media (max-width: 991px) {
+    .container {
+        position: relative;
+        .menu-menu-1-container {
+            width: 100%;
+            top: 100%;
+            right: 0;
+            margin-left: 0;
+            background-color: rgba(0, 0, 0, 1);
+            position: absolute;
+            text-align: left;
+            display: none;
+            z-index: 99;
+        }
 
-    .menu-menu-1-container {
-        width: 100%;
-        right: 0;
-        margin-left: 0;
-        background-color: #fff;
-        text-align: left;
-        display: none;
-    }
+        .menu a {
+            text-align: left;
+            color: #fff;
+            display: block;
+            padding: 10px 30px;
+            text-transform: uppercase;
+            word-wrap: break-word;
+        }
 
-    .menu a {
-        text-align: left;
-        display: block;
-        padding: 10px 30px;
-        text-transform: uppercase;
-        word-wrap: break-word;
-    }
+        .menu li {
+            display: block;
+        }
 
-    .menu li {
-        display: block;
-    }
+        .menu li:before {
+            content: none;
+        }
 
-    .menu li:before {
-        content: none;
+        .btn-menu {
+            content: '';
+            background-color: transparent;
+            color: #fff;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
+            margin-right: 50px;
+            @media ( min-width: 992px ) {
+                margin-right: 0;
+                position: absolute;
+            }
+        }
+
+        #pull {
+            display: block;
+            clear: both;
+            position: absolute;
+            content: '';
+            background-color: transparent;
+            border: none;
+            top: 50%;
+            transform: translateY( -50% );
+            right: 0;
+            z-index: 999;
+            color: #fff;
+        }
     }
 }
 
@@ -191,7 +227,7 @@
         content: ' ';
         background-color: transparent;
         border: none;
-        top: 100px;
+        top: 0;
         right: 0;
         z-index: 5;
     }

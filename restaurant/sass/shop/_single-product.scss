@@ -6,6 +6,15 @@
 		@include clearfix;
 		position: relative;
 
+        .onsale {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            color: red;
+            font-size: 20px;
+            z-index: 2;
+        }
+
 		.woocommerce-product-gallery {
 			position: relative;
             width: 48%;
@@ -95,6 +104,9 @@
             .price {
                 margin-top: 15px;
                 font-size: 30px;
+                del {
+                    margin-right: 20px;
+                }
             }
 
             .cart {
@@ -114,6 +126,13 @@
                     border-radius: 5px;
                     text-transform: uppercase;
                     color: #fff;
+                }
+            }
+
+            .product_meta {
+                display: grid;
+                .posted_in {
+                    margin: 20px 0;
                 }
             }
         }
@@ -215,5 +234,39 @@
             margin-left: 0;
             margin-right: 30px;
         }
+    }
+}
+
+@media ( max-width: 991px ) {
+    .single {
+       #primary {
+            float: left;
+            width: 100%;
+            @media ( min-width: 992px ) {
+                margin-left: 30px;
+            }
+        }
+
+        #secondary {
+            float: left;
+            width: 100%;
+        }
+    }
+
+    .single-product div.product .summary {
+        width: 100%;
+        display: block;
+    }
+
+    .single-product div.product .woocommerce-product-gallery {
+        width: 100%;
+    }
+    .woocommerce-product-details__short-description{
+        display: block;
+        clear: both;
+    }
+
+    .single-product div.product section.related.products h2 {
+        font-size: 35px;
     }
 }

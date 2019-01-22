@@ -33,6 +33,14 @@
             position: relative;
             float: left;
             margin-right: 30px;
+            .onsale {
+                position: absolute;
+                top: 5px;
+                left: 10px;
+                padding: 0 5px;
+                border-radius: 5px;
+                background-color: #fff;
+            }
             img {
                 display: block;
             }
@@ -50,6 +58,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            
             .text-view {
                 margin-top: 100px;
                 color: #fff;
@@ -88,12 +97,32 @@
                 margin: 20px 0;
             }
 
+            .star-rating {
+                span:before {
+                    color: #c3917d;
+                }
+            }
+
+            .price {
+                font-style: italic;
+                display: inline-block;
+                del {
+                    margin-right: 15px;
+                }
+            }
+
             .button {
                 border: 1px solid #c3917d;
                 border-radius: 50px;
                 background-color: #c3917d;
-                padding: 5px 60px;
+                padding: 5px 50px;
                 color: #fff;
+                text-transform: uppercase;
+
+                &:hover{
+                    background-color: transparent;
+                    color: red;
+                }
             }
         }
     }
@@ -238,5 +267,37 @@ ul.products {
         .site-content .container #secondary {
             margin-right: 30px;
         }
+    }
+}
+
+// single add to cart button.
+.single_add_to_cart_button,
+.add_to_cart_button {
+    &:before{
+        content: "\f217";
+        font-family: 'FontAwesome';
+        margin-right: 10px;
+    }
+}
+
+@media ( max-width: 991px ) {
+    .site-content{
+        margin-top: 100px;
+       #primary {
+            float: left;
+            width: 100%;
+            @media ( min-width: 992px ) {
+                margin-left: 30px;
+            }
+        }
+
+        #secondary {
+            float: left;
+            width: 100%;
+        }
+    }
+
+    .products .product .restaurant-product-info {
+        display: block;
     }
 }
