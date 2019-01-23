@@ -52,7 +52,7 @@
 
                 <button class="btn-menu"><?php esc_html_e( 'RESERVATION', 'restaurant' ); ?></button>
 
-                <button id="pull" class="fa fa-bars"></button>
+                <button id="pull"><a href="#menu" id="toggle"><span></span></a></button>
             </div>
             
         </div>
